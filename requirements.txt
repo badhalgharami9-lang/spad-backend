@@ -4,7 +4,9 @@ python-multipart
 opencv-python
 numpy
 joblib
-tensorflow==2.16.1
+tflite-runtime
+
+
 
 
 
