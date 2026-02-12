@@ -2,10 +2,9 @@ fastapi
 uvicorn
 python-multipart
 opencv-python-headless
+numpy==1.26.4
 joblib
-numpy==1.24.3
-tensorflow-cpu==2.13.1
-
+tflite-runtime==2.14.0
 
 
 
