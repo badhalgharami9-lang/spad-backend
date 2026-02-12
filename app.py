@@ -2,9 +2,14 @@ import os
 import numpy as np
 import cv2
 import joblib
-import tensorflow as tf
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import JSONResponse
+try:
+    from tflite_runtime.interpreter import Interpreter
+except ImportError:
+    import tensorflow as tf
+    Interpreter = tf.lite.Interpreter
+
 
 # -----------------------------
 # Load scaler + TFLite once
@@ -148,3 +153,4 @@ async def predict(file: UploadFile = File(...)):
 
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
+
