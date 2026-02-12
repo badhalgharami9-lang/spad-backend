@@ -5,6 +5,8 @@ opencv-python-headless
 numpy==1.26.4
 joblib
 tflite-runtime==2.14.0
+scikit-learn==1.4.2
+
 
 
 
