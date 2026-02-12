@@ -4,4 +4,6 @@ python-multipart
 opencv-python
 numpy
 joblib
-tensorflow
+tensorflowtensorflow==2.16.1
+
+
