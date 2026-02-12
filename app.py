@@ -73,7 +73,8 @@ def extract_features_from_bgr(img_bgr: np.ndarray) -> np.ndarray:
     mean_A = float(np.mean(lab[:, :, 1]))
     mean_B_lab = float(np.mean(lab[:, :, 2]))
 
-    ycrcb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2YCrCb)
+    ycrcb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2YCrCb).astype(np.float32)
+
     mean_Y  = float(np.mean(ycrcb[:, :, 0]))
     mean_Cr = float(np.mean(ycrcb[:, :, 1]))
     mean_Cb = float(np.mean(ycrcb[:, :, 2]))
@@ -154,5 +155,6 @@ async def predict(file: UploadFile = File(...)):
 
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
+
 
 
