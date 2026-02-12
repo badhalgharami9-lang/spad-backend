@@ -19,8 +19,9 @@ TFLITE_PATH = "spad_mlp.tflite"
 
 scaler = joblib.load(SCALER_PATH)
 
-interpreter = tf.lite.Interpreter(model_path=TFLITE_PATH)
+interpreter = Interpreter(model_path=TFLITE_PATH)
 interpreter.allocate_tensors()
+
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
@@ -153,4 +154,5 @@ async def predict(file: UploadFile = File(...)):
 
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
+
 
